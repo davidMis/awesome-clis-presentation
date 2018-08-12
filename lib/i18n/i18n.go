@@ -14,17 +14,19 @@ func UseLanguage(language string) error {
 	switch language {
 	case "EN":
 		Messages = map[string]string{
-			"main": "I love cookies",
-			"eatCookie": "YUM! I ate a cookie!",
-			"eatOther": "YUCK! I ate a %s",
-			"prepareCookie": "Time to bake some cookies",
-			"prepareOther": "I don't know how to prepare %s",
+			"main": "I love cookies\n",
+			"eatCookie": "YUM! I ate a cookie!\n",
+			"eatOther": "YUCK! I ate a %s\n",
+			"prepareCookie": "Time to bake some cookies\n",
+			"prepareOther": "I don't know how to prepare %s\n",
 		}
 	case "ES":
 		Messages = map[string]string{
-			"main": "",
-			"eatCookie": "",
-			"eatOther": "",
+			"main": "Me encanta las galletas\n",
+			"eatCookie": "MMM! Comí la galleta\n",
+			"eatOther": "YUCK! Comí %s\n",
+			"prepareCookie": "Vamanos a hornear\n",
+			"prepareOther": "Yo no se como cocinar %s\n",
 		}
 	default:
 		return errors.New("unsupported language " + language)
