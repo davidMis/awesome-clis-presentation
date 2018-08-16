@@ -1,6 +1,9 @@
 package i18n
 
-import "github.com/pkg/errors"
+import (
+	"github.com/pkg/errors"
+	"log"
+)
 
 // Messages is an i18n dictionary. It's keys are string labels, and the values are
 // internationalized strings.
@@ -11,6 +14,9 @@ var Messages map[string]string
 // ISO language code. In a real application, we would probably load the dictionary from
 // a file, but for this toy it's okay to just build the maps on the fly.
 func UseLanguage(language string) error {
+	log.SetPrefix("[DEBUG] ")
+	log.Printf("Using language \"%s\"", language)
+
 	switch language {
 	case "EN":
 		Messages = map[string]string{
