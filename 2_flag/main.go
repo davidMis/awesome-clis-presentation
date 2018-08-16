@@ -4,12 +4,8 @@ import (
 	"os"
 	"github.com/davidMis/cookieMonster/lib/i18n"
 	"github.com/pkg/errors"
-	"flag"
 	"fmt"
 )
-
-var foodFlag string
-var eatFlag bool
 
 func init() {
 	// Get the configuration from the environment
@@ -20,19 +16,10 @@ func init() {
 
 	// Configure the i18 library
 	i18n.UseLanguage(language)
-
-	// Define and parse flags
-	flag.BoolVar(&eatFlag, "eat", false, "Perform the eat action")
-	flag.StringVar(&foodFlag, "food", "cookie", "The food to eat")
-	flag.Parse()
 }
 
 func main() {
-	if eatFlag {
-		eat(foodFlag)
-	} else {
-		fmt.Printf(i18n.Messages["main"])
-	}
+	fmt.Printf(i18n.Messages["main"])
 }
 
 // eat instructs cookie monster to consume the specified food. If
@@ -45,5 +32,3 @@ func eat(food string) {
 		fmt.Printf(i18n.Messages["eatOther"], food)
 	}
 }
-
-
